@@ -57,8 +57,10 @@ python ui.py --host grpcs://FLOW_ID.wolf.jina.ai
 ```python
 from jina import Client
 from docarray import Document
+
 client = Client(host='localhost:54322') 
 docs = client.post('/', inputs=[Document(uri='audio.wav') for _ in range(1)])
+
 for img in docs[0].matches:
     img.load_uri_to_image_tensor()
 
